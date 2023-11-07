@@ -3,9 +3,7 @@ const app = express();
 const PORT = 8000;
 app.use(express.json())
 
-const stripe = require("stripe")(
-  "sk_test_51O82irG4yvuKtvGSN2Ynavr52Qi0XDE10yz7WNfd09Mk0hOGjqkLGwrpOYBkaj7tOrWlDDJ7l2usglY0e7LaPjqk00OCAW1b7d"
-);
+const stripe = require("stripe")(process.env.API_STRIPE);
 const { products } = require("./routes/product-route");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
